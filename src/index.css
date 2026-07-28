@@ -5,17 +5,26 @@
 
 @custom-variant dark (&:is(.dark *));
 :root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: oklch(0.922 0 0);
-  --code-bg: #f4f3ec;
-  --accent: oklch(0.97 0 0);
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
+  /* Brand palette */
+  --brand-primary: #4e2fd2;
+  --brand-success: #0aa288;
+  --brand-secondary: #6f7882;
+  --brand-background: #ffffff;
+  --brand-text: #0b0d10;
+  --brand-failed: #d8392b;
+
+  --text: var(--brand-secondary);
+  --text-h: var(--brand-text);
+  --bg: var(--brand-background);
+  --border: color-mix(in srgb, var(--brand-secondary) 18%, var(--brand-background));
+  --code-bg: color-mix(in srgb, var(--brand-secondary) 8%, var(--brand-background));
+  --accent: var(--brand-primary);
+  --accent-bg: color-mix(in srgb, var(--brand-primary) 10%, transparent);
+  --accent-border: color-mix(in srgb, var(--brand-primary) 35%, transparent);
+  --social-bg: color-mix(in srgb, var(--brand-secondary) 8%, var(--brand-background));
   --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+    rgba(11, 13, 16, 0.08) 0 10px 15px -3px,
+    rgba(11, 13, 16, 0.04) 0 4px 6px -2px;
 
   --sans: system-ui, "Segoe UI", Roboto, sans-serif;
   --heading: system-ui, "Segoe UI", Roboto, sans-serif;
@@ -23,7 +32,7 @@
 
   font: 18px/145% var(--sans);
   letter-spacing: 0.18px;
-  color-scheme: light dark;
+  color-scheme: light;
   color: var(--text);
   background: var(--bg);
   font-synthesis: none;
@@ -35,80 +44,96 @@
     font-size: 16px;
   }
 
-  --background: oklch(1 0 0);
+  --background: var(--brand-background);
+  --foreground: var(--brand-text);
 
-  --foreground: oklch(0.145 0 0);
+  --card: var(--brand-background);
+  --card-foreground: var(--brand-text);
 
-  --card: oklch(1 0 0);
+  --popover: var(--brand-background);
+  --popover-foreground: var(--brand-text);
 
-  --card-foreground: oklch(0.145 0 0);
+  --primary: var(--brand-primary);
+  --primary-foreground: var(--brand-background);
 
-  --popover: oklch(1 0 0);
+  --secondary: var(--brand-secondary);
+  --secondary-foreground: var(--brand-background);
 
-  --popover-foreground: oklch(0.145 0 0);
+  --success: var(--brand-success);
+  --success-foreground: var(--brand-background);
 
-  --primary: oklch(0.205 0 0);
+  --muted: color-mix(in srgb, var(--brand-secondary) 8%, var(--brand-background));
+  --muted-foreground: var(--brand-secondary);
 
-  --primary-foreground: oklch(0.985 0 0);
+  --accent-foreground: var(--brand-text);
 
-  --secondary: oklch(0.97 0 0);
+  --destructive: var(--brand-failed);
+  --destructive-foreground: var(--brand-background);
 
-  --secondary-foreground: oklch(0.205 0 0);
+  --input: color-mix(in srgb, var(--brand-secondary) 18%, var(--brand-background));
+  --ring: color-mix(in srgb, var(--brand-primary) 45%, var(--brand-background));
 
-  --muted: oklch(0.97 0 0);
-
-  --muted-foreground: oklch(0.556 0 0);
-
-  --accent-foreground: oklch(0.205 0 0);
-
-  --destructive: oklch(0.577 0.245 27.325);
-
-  --input: oklch(0.922 0 0);
-
-  --ring: oklch(0.708 0 0);
-
-  --chart-1: oklch(0.87 0 0);
-
-  --chart-2: oklch(0.556 0 0);
-
-  --chart-3: oklch(0.439 0 0);
-
-  --chart-4: oklch(0.371 0 0);
-
-  --chart-5: oklch(0.269 0 0);
+  --chart-1: var(--brand-primary);
+  --chart-2: var(--brand-success);
+  --chart-3: var(--brand-secondary);
+  --chart-4: var(--brand-failed);
+  --chart-5: color-mix(in srgb, var(--brand-primary) 55%, var(--brand-text));
 
   --radius: 0.625rem;
 
-  --sidebar: oklch(0.985 0 0);
-
-  --sidebar-foreground: oklch(0.145 0 0);
-
-  --sidebar-primary: oklch(0.205 0 0);
-
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-
-  --sidebar-accent: oklch(0.97 0 0);
-
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-
-  --sidebar-border: oklch(0.922 0 0);
-
-  --sidebar-ring: oklch(0.708 0 0)
+  --sidebar: var(--brand-background);
+  --sidebar-foreground: var(--brand-text);
+  --sidebar-primary: var(--brand-primary);
+  --sidebar-primary-foreground: var(--brand-background);
+  --sidebar-accent: color-mix(in srgb, var(--brand-secondary) 8%, var(--brand-background));
+  --sidebar-accent-foreground: var(--brand-text);
+  --sidebar-border: color-mix(in srgb, var(--brand-secondary) 18%, var(--brand-background));
+  --sidebar-ring: color-mix(in srgb, var(--brand-primary) 45%, var(--brand-background));
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
+    --brand-background: #0b0d10;
+    --brand-text: #ffffff;
+
+    --text: color-mix(in srgb, var(--brand-secondary) 80%, white);
+    --text-h: var(--brand-text);
+    --bg: var(--brand-background);
+    --border: color-mix(in srgb, var(--brand-secondary) 35%, var(--brand-background));
+    --code-bg: color-mix(in srgb, var(--brand-secondary) 18%, var(--brand-background));
+    --accent: color-mix(in srgb, var(--brand-primary) 75%, white);
+    --accent-bg: color-mix(in srgb, var(--brand-primary) 18%, transparent);
+    --accent-border: color-mix(in srgb, var(--brand-primary) 45%, transparent);
+    --social-bg: color-mix(in srgb, var(--brand-secondary) 20%, var(--brand-background));
     --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
+      rgba(0, 0, 0, 0.4) 0 10px 15px -3px,
+      rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
+
+    --background: var(--brand-background);
+    --foreground: var(--brand-text);
+    --card: color-mix(in srgb, var(--brand-secondary) 12%, var(--brand-background));
+    --card-foreground: var(--brand-text);
+    --popover: color-mix(in srgb, var(--brand-secondary) 12%, var(--brand-background));
+    --popover-foreground: var(--brand-text);
+    --primary: color-mix(in srgb, var(--brand-primary) 85%, white);
+    --primary-foreground: var(--brand-background);
+    --secondary: color-mix(in srgb, var(--brand-secondary) 70%, white);
+    --secondary-foreground: var(--brand-background);
+    --muted: color-mix(in srgb, var(--brand-secondary) 18%, var(--brand-background));
+    --muted-foreground: color-mix(in srgb, var(--brand-secondary) 70%, white);
+    --accent-foreground: var(--brand-text);
+    --destructive: color-mix(in srgb, var(--brand-failed) 85%, white);
+    --destructive-foreground: var(--brand-background);
+    --input: color-mix(in srgb, var(--brand-secondary) 25%, var(--brand-background));
+    --ring: color-mix(in srgb, var(--brand-primary) 60%, white);
+    --sidebar: color-mix(in srgb, var(--brand-secondary) 12%, var(--brand-background));
+    --sidebar-foreground: var(--brand-text);
+    --sidebar-primary: color-mix(in srgb, var(--brand-primary) 85%, white);
+    --sidebar-primary-foreground: var(--brand-background);
+    --sidebar-accent: color-mix(in srgb, var(--brand-secondary) 18%, var(--brand-background));
+    --sidebar-accent-foreground: var(--brand-text);
+    --sidebar-border: color-mix(in srgb, var(--brand-secondary) 35%, var(--brand-background));
+    --sidebar-ring: color-mix(in srgb, var(--brand-primary) 60%, white);
   }
 
   #social .button-icon {
@@ -196,6 +221,9 @@ code {
   --color-input: var(--input);
   --color-border: var(--border);
   --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
   --color-accent-foreground: var(--accent-foreground);
   --color-accent: var(--accent);
   --color-muted-foreground: var(--muted-foreground);
@@ -220,37 +248,40 @@ code {
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  --brand-background: #0b0d10;
+  --brand-text: #ffffff;
+
+  --background: var(--brand-background);
+  --foreground: var(--brand-text);
+  --card: color-mix(in srgb, var(--brand-secondary) 12%, var(--brand-background));
+  --card-foreground: var(--brand-text);
+  --popover: color-mix(in srgb, var(--brand-secondary) 12%, var(--brand-background));
+  --popover-foreground: var(--brand-text);
+  --primary: color-mix(in srgb, var(--brand-primary) 85%, white);
+  --primary-foreground: var(--brand-background);
+  --secondary: color-mix(in srgb, var(--brand-secondary) 70%, white);
+  --secondary-foreground: var(--brand-background);
+  --muted: color-mix(in srgb, var(--brand-secondary) 18%, var(--brand-background));
+  --muted-foreground: color-mix(in srgb, var(--brand-secondary) 70%, white);
+  --accent-foreground: var(--brand-text);
+  --destructive: color-mix(in srgb, var(--brand-failed) 85%, white);
+  --destructive-foreground: var(--brand-background);
+  --border: color-mix(in srgb, var(--brand-secondary) 35%, var(--brand-background));
+  --input: color-mix(in srgb, var(--brand-secondary) 25%, var(--brand-background));
+  --ring: color-mix(in srgb, var(--brand-primary) 60%, white);
+  --chart-1: color-mix(in srgb, var(--brand-primary) 85%, white);
+  --chart-2: color-mix(in srgb, var(--brand-success) 85%, white);
+  --chart-3: color-mix(in srgb, var(--brand-secondary) 70%, white);
+  --chart-4: color-mix(in srgb, var(--brand-failed) 85%, white);
+  --chart-5: color-mix(in srgb, var(--brand-primary) 55%, white);
+  --sidebar: color-mix(in srgb, var(--brand-secondary) 12%, var(--brand-background));
+  --sidebar-foreground: var(--brand-text);
+  --sidebar-primary: color-mix(in srgb, var(--brand-primary) 85%, white);
+  --sidebar-primary-foreground: var(--brand-background);
+  --sidebar-accent: color-mix(in srgb, var(--brand-secondary) 18%, var(--brand-background));
+  --sidebar-accent-foreground: var(--brand-text);
+  --sidebar-border: color-mix(in srgb, var(--brand-secondary) 35%, var(--brand-background));
+  --sidebar-ring: color-mix(in srgb, var(--brand-primary) 60%, white);
 }
 
 @layer base {
